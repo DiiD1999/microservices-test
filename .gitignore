@@ -38,3 +38,5 @@ build/
 */*.iml
 /.gradle/
 
+*.exe:w
+

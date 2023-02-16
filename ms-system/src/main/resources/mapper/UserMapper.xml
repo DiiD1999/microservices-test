@@ -21,29 +21,13 @@
     <select id="getUserList" resultMap="listUsers">
         select * from sys_user
     </select>
-<!--    <select id="getInfo" resultType="user">-->
-<!--        select user.id, user.dept, user.name, user.nickname, user.phone, user.email, user.gender, user.avatar-->
-<!--        from user-->
-<!--        where name = #{name}-->
-<!--    </select>-->
-
-<!--    <select id="getFile" resultMap="userMap">-->
-<!--        SELECT avatar, `user`.`name`,  file.update_time, file.type , file.title-->
-<!--        FROM file LEFT JOIN `user` on  file.create_person = `user`.`name`-->
-<!--    </select>-->
-<!--    <resultMap id="userMap" type="User">-->
-
-<!--        <id column="id" property="id"/>-->
-<!--        <result column="avatar" property="avatar"/>-->
-<!--        <result column="name" property="name"/>-->
-
-<!--        <collection property="files" javaType="list" ofType="File">-->
-<!--            <id column="id" property="id"/>-->
-<!--            <result column="create_person" property="createPerson"/>-->
-<!--            <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>-->
-<!--            <result column="type" property="type"/>-->
-<!--            <result column="title" property="title"/>-->
-<!--        </collection>-->
-<!--    </resultMap>-->
+    
+    
+    <insert id="batchUser" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_user (username, nick_name) values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.username}, #{item.nickName})
+        </foreach>
+    </insert>
 </mapper>
 

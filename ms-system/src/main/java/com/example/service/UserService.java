@@ -12,4 +12,6 @@ import java.util.List;
 public interface UserService {
 
     List<User> getUserList();
+
+    public int batchUser(List<User> userList);
 }

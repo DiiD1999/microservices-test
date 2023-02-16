@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +19,10 @@ import java.util.Set;
  */
 @Data
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
+    @JsonIgnore
     private Long id;
 
     @NotBlank
@@ -42,9 +46,11 @@ public class User {
 
     private Boolean enabled;
 
+    @JsonIgnore
     private Boolean isAdmin = false;
 
     private Date pwdResetTime;
+
 
     @Override
     public boolean equals(Object o) {

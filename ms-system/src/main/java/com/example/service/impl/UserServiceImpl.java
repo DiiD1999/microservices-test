@@ -21,4 +21,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserList() {
         return userRepository.getUserList();
     }
+
+    @Override
+    public int batchUser(List<User> userList) {
+        return userRepository.batchUser(userList);
+    }
+
 }

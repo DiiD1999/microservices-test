@@ -15,4 +15,12 @@ import java.util.List;
 public interface UserMapper {
 
     List<User> getUserList();
+
+    /**
+     * 批量添加新增用户
+     *
+     * @param userList
+     * @return
+     */
+    public int batchUser(List<User> userList);
 }
